@@ -159,7 +159,7 @@ production monitoring. The system assumes an ML-ready CSV as input and is a
 foundation you could extend toward those things later — not a reproduction
 of MLflow or an AutoML platform.
 
-## Possible next steps (good "future work" bullets for a resume writeup)
+## Possible next steps
 
 - Swap SQLite -> PostgreSQL + add Alembic migrations
 - Move training to a background worker (Celery/RQ) with job status polling
