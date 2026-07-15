@@ -4,7 +4,7 @@
 .env.*.local
 *.pem
 *.key
-.backups/
+.backups
 # --- Backend (Python) ---
 backend/venv/
 backend/__pycache__/
