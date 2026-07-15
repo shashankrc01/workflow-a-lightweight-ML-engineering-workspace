@@ -17,9 +17,9 @@ export function Sidebar({ project }) {
     <aside className="flex h-screen w-60 shrink-0 flex-col bg-sidebar text-sidebar-text">
       <div className="flex items-center gap-2.5 px-5 py-5">
         <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-accent to-accent-hover font-mono text-xs font-bold text-white shadow">
-          FM
+          WF
         </div>
-        <span className="text-sm font-semibold text-sidebar-text-active">ForgeML</span>
+        <span className="text-sm font-semibold text-sidebar-text-active">WorkFlow</span>
       </div>
 
       <button
