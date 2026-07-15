@@ -1,0 +1,53 @@
+# Render.com Blueprint - https://render.com/docs/blueprint-spec
+#
+# Deploys the FastAPI backend (Docker web service) and the React frontend
+# (static site) to Render's free tier. The database is NOT included here on
+# purpose - see the note below.
+#
+# WHY NO DATABASE SECTION: Render's own free Postgres auto-deletes 30 days
+# after creation (14-day grace period, then it's gone). That's a bad fit for
+# a link you want to keep working on your resume. Use Neon
+# (https://neon.tech) instead - its free Postgres tier has no expiration.
+# Create a free Neon project, copy its connection string, and paste it as
+# the DATABASE_URL value in the Render dashboard after this blueprint runs
+# (see DEPLOYMENT.md for the full walkthrough).
+#
+# ALSO NOTE: free Render web services have an EPHEMERAL filesystem - any
+# file written to local disk (uploaded CSVs, trained model .joblib files)
+# is wiped whenever the service spins down from inactivity and restarts.
+# Persistent disks require a paid instance type. This is a real limitation
+# of the free tier with this app's current architecture, not a bug -
+# DEPLOYMENT.md explains the tradeoff and the practical workaround.
+#
+# Usage: push this repo to GitHub, then in Render: New -> Blueprint,
+# point it at the repo, and Render provisions the two services below.
+# Then manually set DATABASE_URL (Neon) and CORS_ORIGINS/VITE_API_BASE
+# once you know your real service URLs.
+
+services:
+  - type: web
+    name: forgeml-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    plan: free
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # paste your Neon connection string here after deploy
+      - key: CORS_ORIGINS
+        sync: false   # paste your frontend's real Render/Vercel URL here
+
+  - type: web
+    name: forgeml-frontend
+    runtime: static
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    rootDir: frontend
+    envVars:
+      - key: VITE_API_BASE
+        sync: false   # paste your backend's real Render URL here
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
+

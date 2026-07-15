@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+*.db
+storage/datasets/*
+storage/models/*
+!storage/datasets/.gitkeep
+!storage/models/.gitkeep
+.env

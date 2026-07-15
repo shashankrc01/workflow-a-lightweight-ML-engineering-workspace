@@ -1,0 +1,31 @@
+# --- Secrets / environment ---
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# --- Backend (Python) ---
+backend/venv/
+backend/__pycache__/
+backend/**/__pycache__/
+*.pyc
+backend/*.db
+backend/ml_workspace.db
+backend/storage/datasets/*
+backend/storage/models/*
+!backend/storage/datasets/.gitkeep
+!backend/storage/models/.gitkeep
+
+# --- Frontend (Node) ---
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# --- Editor / OS junk ---
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+*.zip
