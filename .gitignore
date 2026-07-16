@@ -21,7 +21,7 @@ backend/storage/models/*
 frontend/node_modules/
 frontend/dist/
 frontend/.vite/
-
+echo ".env*" >> .gitignore
 # --- Editor / OS junk ---
 .vscode/
 .idea/

@@ -7,3 +7,4 @@ storage/datasets/*
 storage/models/*
 !storage/datasets/.gitkeep
 !storage/models/.gitkeep
+echo ".env*" >> .gitignore
