@@ -21,7 +21,7 @@ export function OverviewPage() {
         <EmptyState
           icon={Icon.Database}
           title="Upload your first dataset to get started"
-          description="ForgeML will generate a Dataset Health Report automatically — missing values, encoding needs, class imbalance, and more."
+          description="WorkFlow will generate a Dataset Health Report automatically for missing values, encoding needs, class imbalance, and more."
           action={<Link to="datasets" className="btn-primary"><Icon.Upload size={16} /> Go to Datasets</Link>}
         />
       </>
