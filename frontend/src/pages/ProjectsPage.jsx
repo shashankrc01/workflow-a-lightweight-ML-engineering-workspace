@@ -64,7 +64,7 @@ export function ProjectsPage() {
       <header className="border-b border-border bg-surface">
         <div className="mx-auto flex max-w-5xl items-center gap-2.5 px-8 py-5">
           <div className="flex h-8 w-8 items-center justify-center rounded-md bg-gradient-to-br from-accent to-accent-hover font-mono text-xs font-bold text-white shadow">
-            FM
+            WF
           </div>
           <span className="text-sm font-semibold">WorkFlow</span>
           <span className="text-sm text-ink-muted">: Lightweight ML Engineering Workspace</span>
